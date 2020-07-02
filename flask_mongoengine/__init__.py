@@ -104,7 +104,7 @@ class MongoEngine(object):
             self.init_app(app, config)
 
     def init_app(self, app, config=None):
-        if not app or not isinstance(app, Flask):
+        if not (app and isinstance(app, Flask)):
             raise TypeError("Invalid Flask application instance")
 
         self.app = app
